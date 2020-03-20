@@ -1,4 +1,4 @@
-package guru.springframework.respositories;
+package guru.springframework.repositories;
 
 import guru.springframework.domain.UnitOfMeasure;
 import org.junit.Before;
@@ -12,6 +12,9 @@ import java.util.Optional;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * Created by jt on 6/17/17.
+ */
 @RunWith(SpringRunner.class)
 @DataJpaTest
 public class UnitOfMeasureRepositoryIT {
@@ -24,14 +27,19 @@ public class UnitOfMeasureRepositoryIT {
     }
 
     @Test
-    public void findByDescriptionTeaspoon() {
-        Optional<UnitOfMeasure> uom = unitOfMeasureRepository.findByDescription("Teaspoon");
-        assertEquals("Teaspoon", uom.get().getDescription());
+    public void findByDescription() throws Exception {
+
+        Optional<UnitOfMeasure> uomOptional = unitOfMeasureRepository.findByDescription("Teaspoon");
+
+        assertEquals("Teaspoon", uomOptional.get().getDescription());
     }
 
     @Test
-    public void findByDescriptionCup() {
-        Optional<UnitOfMeasure> uom = unitOfMeasureRepository.findByDescription("Cup");
-        assertEquals("Cup", uom.get().getDescription());
+    public void findByDescriptionCup() throws Exception {
+
+        Optional<UnitOfMeasure> uomOptional = unitOfMeasureRepository.findByDescription("Cup");
+
+        assertEquals("Cup", uomOptional.get().getDescription());
     }
+
 }

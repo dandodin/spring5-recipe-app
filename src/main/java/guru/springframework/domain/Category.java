@@ -4,9 +4,11 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
-import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Created by jt on 6/13/17.
+ */
 @Data
 @EqualsAndHashCode(exclude = {"recipes"})
 @Entity
@@ -16,7 +18,8 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String description;
+
     @ManyToMany(mappedBy = "categories")
-    private Set<Recipe> recipes = new HashSet<>();
+    private Set<Recipe> recipes;
 
 }
